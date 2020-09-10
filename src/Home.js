@@ -41,7 +41,7 @@ function Home() {
           />
           <Product
             title="10 Pairs Fiberglass Alloy Chopsticks, GLAMFIELDS Reusable Japanese Chinese Chop sticks Dishwasher Safe, Non-slip, 9 1/2 inches"
-            price={8.9}
+            price={8.7}
             image="https://images-na.ssl-images-amazon.com/images/I/71bod0AoJrL._AC_SL1500_.jpg"
             rating={5}
           />
