@@ -1,5 +1,6 @@
 export const initialState = {
   basket: [],
+  user: null,
 };
 
 //Selector (tallies up the basket,and it goes ahead and tallies up all of the item prices and it adds it into final amount,and returns it)
@@ -33,6 +34,12 @@ const reducer = (state, action) => {
       return {
         ...state,
         basket: newBasket,
+      };
+
+    case "SET_USER":
+      return {
+        ...state,
+        user: action.user,
       };
 
     default:
