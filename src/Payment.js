@@ -8,6 +8,7 @@ import CurrencyFormat from "react-currency-format";
 import { getBasketTotal } from "./reducer";
 import axios from "./axios";
 import { useHistory } from "react-router-dom";
+import { db } from "./firebase";
 
 function Payment() {
   const history = useHistory();
@@ -29,7 +30,7 @@ function Payment() {
         method: "post",
         //Stripe expects the total in a currency subunits $ => cent
         url: `/payments/create?total=${
-          Math.round(getBasketTotal(basket)) * 100
+          getBasketTotal(basket).toFixed(2) * 100
         }`,
       });
       setClientSecret(response.data.clientSecret);
@@ -52,6 +53,17 @@ function Payment() {
       })
       .then(({ paymentIntent }) => {
         //paymentIntent = payment confirmation
+
+        db.collection("users")
+          .doc(user?.uid)
+          .collection("orders")
+          .doc(paymentIntent.id)
+          .set({
+            basket: basket,
+            amount: paymentIntent.amount,
+            created: paymentIntent.created,
+          });
+
         setSucceeded(true);
         setError(null);
         setProcessing(false);

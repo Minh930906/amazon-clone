@@ -1,5 +1,17 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+https://clone-8a081.web.app/
+
+Amazon-clone with react,with stripe payment,firebase,and a little bit of Node.js.
+
+Important!
+You can't purchase as a guest! Before that u have to signup
+
+TestCard:4242 4242 4242 4242
+exp.date:04/24
+cvc:242
+zip:42424
+
 ## Available Scripts
 
 In the project directory, you can run:
